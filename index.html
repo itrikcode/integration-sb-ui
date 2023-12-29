@@ -37,7 +37,13 @@
     <!-- Add a button with an onclick event to trigger the data fetching -->
     <button onclick="getData()">Get Data</button>
     <div id="data-container"></div>
-
+    <h1>Student delete</h1>
+    <form id="delete-form">
+        <label for="delete-name">Name:</label>
+        <input type="text" id="delete-name" name="delete-name" required>
+        <button type="button" onclick="deleteStudent()">Delete by Name</button>
+    </form>
+</form>
     <script>
         // Function to fetch data from the Spring Boot API
         function getData() {
@@ -75,6 +81,22 @@
             })
             .catch(error => console.error('Error registering student:', error));
         }
-    </script>
+
+        //functionallity to delete student usign student name
+        function deleteStudent() {
+        // Get the name to be deleted
+        const deleteName = document.getElementById('delete-name').value;
+
+        // Make a DELETE request to the Spring Boot API
+        fetch(`http://localhost:8080/api/delete/${deleteName}`, {
+            method: 'DELETE',
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('data-container').innerText = data;
+        })
+        .catch(error => console.error('Error deleting student:', error));
+    }
+   </script>
 </body>
 </html>
