@@ -57,7 +57,7 @@
     <script>
         // Function to fetch data from the Spring Boot API
         function getData() {
-            fetch('https://ec2-18-232-71-98.compute-1.amazonaws.com:8080/api/data')
+            fetch('http://ec2-18-232-71-98.compute-1.amazonaws.com:8080/api/data')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('data-container').innerText = data;
