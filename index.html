@@ -57,7 +57,7 @@
     <script>
         // Function to fetch data from the Spring Boot API
         function getData() {
-            fetch('https://sb-integration-with-html-js-app-production.up.railway.app/api/data')
+            fetch('http://ec2-18-232-71-98.compute-1.amazonaws.com:8080/api/data')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('data-container').innerText = data;
@@ -78,7 +78,7 @@
             };
 
             // Make a POST request to the Spring Boot API
-            fetch('https://sb-integration-with-html-js-app-production.up.railway.app/api/save', {
+            fetch('http://ec2-18-232-71-98.compute-1.amazonaws.com:8080/api/save', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -98,7 +98,7 @@
         const deleteName = document.getElementById('delete-name').value;
 
         // Make a DELETE request to the Spring Boot API
-        fetch(`https://sb-integration-with-html-js-app-production.up.railway.app/api/delete/${deleteName}`, {
+        fetch(`http://ec2-18-232-71-98.compute-1.amazonaws.com:8080/api/delete/${deleteName}`, {
             method: 'DELETE',
         })
         .then(response => response.text())
